@@ -80,10 +80,10 @@ export default function Home() {
               alt="Overlay"
               style={{
                 position: "absolute",
-                bottom: -15,
+                bottom: -20,
                 left: "50%",
                 transform: "translateX(-50%)",
-                width: "clamp(200px, 55vw, 700px)", 
+                width: "clamp(200px, 55vw, 850px)", 
                 zIndex: 5,
                 pointerEvents: "none",
               }}

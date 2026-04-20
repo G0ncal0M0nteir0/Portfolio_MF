@@ -28,9 +28,10 @@ export default function Sobre() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: 80,
+              gridTemplateColumns: "420px 420px",
+              gap: 48,
               alignItems: "start",
+              justifyContent: "center",
             }}
           >
             {/* LEFT COLUMN */}
@@ -39,7 +40,8 @@ export default function Sobre() {
                 display: "flex",
                 flexDirection: "column",
                 gap: 24,
-                paddingTop: "22.5vh", 
+                paddingTop: "33vh", 
+                lineHeight: 0.3,
               }}
             >
               <h1
@@ -63,13 +65,24 @@ export default function Sobre() {
               >
                 Olá sou o <em>Mateus.</em>
                 <br />
-                Desde de novo, o desenho sempre fez parte da minha vida,
-                acompanhando-me em todas as fases do meu crescimento.
+                Desde de novo, o desenho sempre fez parte
                 <br />
-                Com o tempo, este entusiasmo acabou por se fundir com o Design.
+                da minha vida,
+                acompanhando-me em todas 
+                <br />
+                as fases do meu crescimento.
+                Com o tempo, 
+                <br />
+                este entusiasmo acabou 
+                por se fundir
+                <br />
+                com o Design.
                 <br />
                 Ao longo da minha formação, desenvolvi várias ilustrações e
-                projetos que foram cruciais para o meu crescimento pessoal e
+                projetos que foram cruciais 
+                <br />
+                para 
+                o meu crescimento pessoal e
                 profissional.
               </p>
             </div>
@@ -81,6 +94,7 @@ export default function Sobre() {
                 flexDirection: "column",
                 gap: 24,
                 paddingTop: "0vh",
+                lineHeight: 0.3,
               }}
             >
               <img
@@ -102,11 +116,19 @@ export default function Sobre() {
                   display: "block",
                 }}
               >
-                Estes, permitiram-me evoluir tecnicamente e refinar o meu olhar,
+                Estes, permitiram-me evoluir tecnicamente 
+                <br />
+                e refinar o meu olhar,
                 dando-me fundamentos para explorar e criar soluções visuais que
-                unem a forma á funcionalidade.
-                Hoje, continuo a explorar novas abordagens e a aprender de forma
-                contínua, com a mesma dedicação e curiosidade que me acompanharam
+                unem 
+                <br />
+                a forma á funcionalidade.
+                <br />
+                Hoje, continuo a explorar novas abordagens 
+                <br />
+                e a aprender de forma
+                contínua, com a mesma dedicação e curiosidade que
+                me acompanharam
                 desde a minha génese.
               </p>
             </div>
