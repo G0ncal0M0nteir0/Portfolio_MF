@@ -17,7 +17,7 @@ export default function Sobre() {
           display: "flex",
           flexDirection: "column",
 
-          padding: "30vh 80px",
+          padding: "15vh 80px 0 80px",
         }}
       >
         <div
@@ -39,7 +39,7 @@ export default function Sobre() {
                 display: "flex",
                 flexDirection: "column",
                 gap: 24,
-                paddingTop: "23vh", 
+                paddingTop: "22.5vh", 
               }}
             >
               <h1
