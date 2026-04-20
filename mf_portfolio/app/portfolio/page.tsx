@@ -1,60 +1,55 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 
 const projects = [
   {
     id: 0,
-    title: "Ilustrações",
+    title: "Conjunto de Cabides Coat",
     description:
-      "Conjunto de ilustrações desenvolvidas como uma sequência visual contínua, onde cada frame contribui para a construção de uma narrativa. Estas composições dão origem ao vídeo apresentado na página inicial, estabelecendo uma ligação entre imagem estática e movimento.",
-    image: "/images/ilustracoes.png",
-    color: "#C0392B",
+      "Produto desenvolvido a partir da reutilização de desperdícios. O projeto segue um processo inverso, onde o conhecimento do material direciona a forma e define o resultado final.",
+    image: "/images/project1.png",
+    slug: "cabides-coat",
   },
   {
     id: 1,
     title: "Fotografia",
     description:
-      "Série fotográfica exploratória que documenta espaços urbanos e a relação entre luz e sombra. Cada imagem captura um instante efémero, construindo uma linguagem visual própria entre o real e o abstrato.",
+      "Série fotográfica exploratória que documenta espaços urbanos e a relação entre luz e sombra.",
     image: "/images/fotografia.png",
-    color: "#555",
+    slug: "fotografia",
   },
   {
     id: 2,
     title: "Motion",
     description:
-      "Projetos de animação e design em movimento que exploram a fluidez entre formas e transições. A narrativa é construída através do tempo, do ritmo e da transformação contínua dos elementos visuais.",
+      "Projetos de animação e design em movimento que exploram a fluidez entre formas e transições.",
     image: "/images/motion.png",
-    color: "#444",
+    slug: "motion",
   },
   {
     id: 3,
     title: "Identidade",
     description:
-      "Desenvolvimento de sistemas de identidade visual para marcas e projetos culturais. O processo parte de conceitos sólidos e resulta em linguagens gráficas coerentes, adaptáveis e memoráveis.",
+      "Desenvolvimento de sistemas de identidade visual para marcas e projetos culturais.",
     image: "/images/identidade.png",
-    color: "#3a3a3a",
-  },
-  {
-    id: 4,
-    title: "Editorial",
-    description:
-      "Projetos editoriais que exploram a relação entre texto, imagem e espaço gráfico. Cada publicação é pensada como um objeto coeso, onde a tipografia e o layout criam uma experiência de leitura única.",
-    image: "/images/editorial.png",
-    color: "#333",
+    slug: "identidade",
   },
 ];
 
 export default function Portfolio() {
   const [active, setActive] = useState(0);
+  const [hovered, setHovered] = useState<number | null>(null);
+  const router = useRouter();
   const current = projects[active];
 
   return (
     <>
       <Navbar />
 
-      {/* PORTFOLIO CONTENT */}
+      {/* Full-screen image */}
       <div
         style={{
           position: "fixed",
@@ -62,131 +57,126 @@ export default function Portfolio() {
           left: 0,
           width: "100%",
           height: "100vh",
-          background: "linear-gradient(180deg, #f5f5f5 0%, #c0c0c0 40%, #5a5a5a 70%, #1a1a1a 100%)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          overflow: "hidden",
+          cursor: "pointer",
+          zIndex: 0,
         }}
+        onClick={() => router.push(`/portfolio/${current.slug}`)}
       >
-
-
-        {/* Main content row */}
-        <div
+        <img
+          key={current.id}
+          src={current.image}
+          alt={current.title}
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            padding: "0 80px",
-            gap: 60,
             width: "100%",
-            boxSizing: "border-box",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+            animation: "fadeIn 0.5s ease forwards",
           }}
-        >
-          {/* LEFT: text */}
-          <div style={{ flex: "0 0 auto", maxWidth: 480 }}>
-            <h1
-              key={current.id + "-title"}
-              style={{
-                fontFamily: "'Georgia', 'Times New Roman', serif",
-                fontStyle: "italic",
-                fontWeight: 400,
-                fontSize: "clamp(36px, 4vw, 56px)",
-                color: "#ffffff",
-                margin: "0 0 28px 0",
-                letterSpacing: "-0.01em",
-                lineHeight: 1.1,
-                animation: "fadeSlideUp 0.5s ease forwards",
-              }}
-            >
-              {current.title}
-            </h1>
-            <p
-              key={current.id + "-desc"}
-              style={{
-                fontFamily: "'Georgia', serif",
-                fontSize: "clamp(13px, 1.1vw, 15px)",
-                color: "rgba(255,255,255,0.75)",
-                lineHeight: 1.75,
-                margin: 0,
-                animation: "fadeSlideUp 0.55s 0.06s ease forwards",
-                opacity: 0,
-              }}
-            >
-              {current.description}
-            </p>
-          </div>
-
-          {/* RIGHT: image */}
-          <div
-            key={current.id + "-img"}
-            style={{
-              flex: "0 0 auto",
-              width: "clamp(240px, 28vw, 380px)",
-              aspectRatio: "1 / 1",
-              background: current.color,
-              borderRadius: 2,
-              overflow: "hidden",
-              animation: "fadeIn 0.5s ease forwards",
-            }}
-          >
-            <img
-              src={current.image}
-              alt={current.title}
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = "none";
-              }}
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                display: "block",
-              }}
-            />
-          </div>
-        </div>
-
-        {/* BOTTOM: thumbnail nav dots */}
+        />
+        {/* Gradient overlay */}
         <div
           style={{
             position: "absolute",
-            bottom: 44,
-            right: 80,
-            display: "flex",
-            gap: 10,
-            alignItems: "center",
+            inset: 0,
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.18) 45%, transparent 70%)",
+            pointerEvents: "none",
+          }}
+        />
+      </div>
+
+      {/* Bottom-left: title + description */}
+      <div
+        style={{
+          position: "fixed",
+          bottom: 100,
+          left: 80,
+          zIndex: 10,
+          pointerEvents: "none",
+          maxWidth: 400,
+        }}
+      >
+        <h1
+          key={current.id + "-title"}
+          style={{
+            fontFamily: '"Instrument Serif", serif',
+            fontWeight: 400,
+            fontSize: "clamp(32px, 3.5vw, 50px)",
+            color: "#ffffff",
+            margin: "0 0 10px 0",
+            lineHeight: 1.1,
+            letterSpacing: "-0.01em",
+            animation: "fadeSlideUp 0.5s ease forwards",
+            maxWidth: 400,
           }}
         >
-          {projects.map((p, i) => (
-            <button
-              key={p.id}
-              onClick={() => setActive(i)}
-              title={p.title}
-              style={{
-                width: i === active ? 38 : 28,
-                height: i === active ? 38 : 28,
-                background:
-                  i === active ? p.color : "rgba(255,255,255,0.22)",
-                border: "none",
-                borderRadius: 2,
-                cursor: "pointer",
-                transition: "all 0.3s ease",
-                padding: 0,
-                outline: "none",
-              }}
-            />
-          ))}
-        </div>
+          {current.title}
+        </h1>
+        <p
+          key={current.id + "-desc"}
+          style={{
+            fontFamily: '"Instrument Serif", serif',
+            fontSize: "clamp(20px, 1vw, 35px)",
+            color: "rgba(255,255,255,0.65)",
+            margin: 0,
+            lineHeight: 1.10,
+            animation: "fadeSlideUp 0.55s 0.06s ease forwards",
+            opacity: 0,
+            maxWidth: 320, 
+          }}
+        >
+          {current.description}
+        </p>
+      </div>
+
+      {/* Bottom-center: nav squares */}
+      <div
+        style={{
+          position: "fixed",
+          bottom: 44,
+          left: "50%",
+          transform: "translateX(-50%)",
+          display: "flex",
+          gap: 10,
+          alignItems: "center",
+          zIndex: 20,
+        }}
+      >
+        {projects.map((p, i) => (
+          <button
+            key={p.id}
+            onClick={(e) => {
+              e.stopPropagation();
+              setActive(i);
+            }}
+            onMouseEnter={() => setHovered(i)}
+            onMouseLeave={() => setHovered(null)}
+            title={p.title}
+            style={{
+              width: hovered === i ? 20 : 14,
+              height: hovered === i ? 20 : 14,
+              background: "#787575",
+              border: "none",
+              borderRadius: 0, 
+              cursor: "pointer",
+              transition: "all 0.2s ease",
+              padding: 0,
+              outline: "none",
+              opacity: hovered === i || active === i ? 1 : 0.4,
+            }}
+          />
+        ))}
       </div>
 
       <style>{`
         @keyframes fadeSlideUp {
-          from { opacity: 0; transform: translateY(18px); }
+          from { opacity: 0; transform: translateY(14px); }
           to   { opacity: 1; transform: translateY(0); }
         }
         @keyframes fadeIn {
-          from { opacity: 0; transform: scale(0.97); }
-          to   { opacity: 1; transform: scale(1); }
+          from { opacity: 0; }
+          to   { opacity: 1; }
         }
       `}</style>
     </>

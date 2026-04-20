@@ -9,126 +9,107 @@ export default function Sobre() {
 
       <div
         style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100vh",
-          background: "linear-gradient(180deg, #f5f5f5 0%, #c0c0c0 40%, #5a5a5a 70%, #1a1a1a 100%)",
-          overflow: "hidden",
+          fontFamily: '"Instrument Serif", serif',
+          background: "#000",
+          color: "#fff",
+          minHeight: "100vh",
+
+          display: "flex",
+          flexDirection: "column",
+
+          padding: "30vh 80px",
         }}
       >
-        {/* Grid overlay */}
         <div
           style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: `
-              linear-gradient(rgba(80,80,80,0.18) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(80,80,80,0.18) 1px, transparent 1px)
-            `,
-            backgroundSize: "48px 32px",
-            pointerEvents: "none",
-          }}
-        />
-
-        {/* Red square — top right with margin from navbar and edge */}
-        <div
-          style={{
-            position: "absolute",
-            top: 130,
-            right: 80,
-            width: "clamp(140px, 16vw, 220px)",
-            aspectRatio: "1 / 1",
-            background: "#C0392B",
-            borderRadius: 2,
-          }}
-        />
-
-        {/* Content — bottom left */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 48,
-            left: 56,
-            maxWidth: "72vw",
+            width: "100%",
           }}
         >
-          {/* Title */}
-          <h1
-            style={{
-              fontFamily: "'Georgia', 'Times New Roman', serif",
-              fontStyle: "italic",
-              fontWeight: 400,
-              fontSize: "clamp(32px, 3.5vw, 50px)",
-              color: "#ffffff",
-              margin: "0 0 6px 0",
-              letterSpacing: "-0.01em",
-              lineHeight: 1.1,
-            }}
-          >
-            Sobre
-          </h1>
-
-          {/* Subtitle */}
-          <p
-            style={{
-              fontFamily: "'Georgia', serif",
-              fontStyle: "italic",
-              fontSize: "clamp(11px, 1vw, 13px)",
-              color: "#ffffff",
-              margin: "0 0 14px 4px",
-            }}
-          >
-            Olá sou o <em>Mateus.</em>
-          </p>
-
-          {/* Two-column body text */}
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
-              gap: "0 40px",
-              maxWidth: "620px",
+              gap: 80,
+              alignItems: "start",
             }}
           >
-            <p
+            {/* LEFT COLUMN */}
+            <div
               style={{
-                fontFamily: "'Georgia', serif",
-                fontSize: "clamp(11px, 0.95vw, 13px)",
-                color: "#ffffff",
-                lineHeight: 1.7,
-                margin: 0,
+                display: "flex",
+                flexDirection: "column",
+                gap: 24,
+                paddingTop: "23vh", 
               }}
             >
-              Desde de novo, o desenho sempre fez parte da minha vida,
-              acompanhando-me em todas as fases do meu crescimento. Com o
-              tempo, este entusiasmo acabou por se fundir com o Design.
-              <br />
-              <br />
-              Ao longo da minha formação, desenvolvi várias ilustrações e
-              projetos que foram cruciais para o meu crescimento pessoal e
-              profissional.
-            </p>
+              <h1
+                style={{
+                  fontSize: "clamp(40px, 4vw, 64px)",
+                  fontWeight: 420,
+                  margin: 0,
+                }}
+              >
+                Sobre
+              </h1>
 
-            <p
+              <p
+                style={{
+                  fontSize: "clamp(24px, 1.1vw, 18px)",
+                  lineHeight: 1.1,
+                  margin: 0,
+                  maxWidth: 400,
+                  display: "block",
+                }}
+              >
+                Olá sou o <em>Mateus.</em>
+                <br />
+                Desde de novo, o desenho sempre fez parte da minha vida,
+                acompanhando-me em todas as fases do meu crescimento.
+                <br />
+                Com o tempo, este entusiasmo acabou por se fundir com o Design.
+                <br />
+                Ao longo da minha formação, desenvolvi várias ilustrações e
+                projetos que foram cruciais para o meu crescimento pessoal e
+                profissional.
+              </p>
+            </div>
+
+            {/* RIGHT COLUMN */}
+            <div
               style={{
-                fontFamily: "'Georgia', serif",
-                fontSize: "clamp(11px, 0.95vw, 13px)",
-                color: "#ffffff",
-                lineHeight: 1.7,
-                margin: 0,
+                display: "flex",
+                flexDirection: "column",
+                gap: 24,
+                paddingTop: "0vh",
               }}
             >
-              Estes, permitiram-me evoluir tecnicamente e refinar o meu olhar,
-              dando-me fundamentos para explorar e criar soluções visuais que
-              unem a forma à funcionalidade.
-              <br />
-              <br />
-              Hoje, continuo a explorar novas abordagens e a aprender de forma
-              contínua, com a mesma dedicação e curiosidade que me
-              acompanharam desde a minha génese.
-            </p>
+              <img
+                src="/images/MateusCara.png"
+                alt="Mateus"
+                style={{
+                  width: "100%",
+                  maxWidth: 420,
+                  display: "block",
+                }}
+              />
+
+              <p
+                style={{
+                  fontSize: "clamp(24px, 1.1vw, 18px)",
+                  lineHeight: 1.1,
+                  margin: 0,
+                  maxWidth: 430,
+                  display: "block",
+                }}
+              >
+                Estes, permitiram-me evoluir tecnicamente e refinar o meu olhar,
+                dando-me fundamentos para explorar e criar soluções visuais que
+                unem a forma á funcionalidade.
+                Hoje, continuo a explorar novas abordagens e a aprender de forma
+                contínua, com a mesma dedicação e curiosidade que me acompanharam
+                desde a minha génese.
+              </p>
+            </div>
           </div>
         </div>
       </div>

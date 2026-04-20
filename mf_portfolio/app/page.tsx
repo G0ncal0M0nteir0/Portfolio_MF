@@ -74,6 +74,20 @@ export default function Home() {
                 objectFit: "cover",
               }}
             />
+            
+            <img
+              src="/images/main_image.png"
+              alt="Overlay"
+              style={{
+                position: "absolute",
+                bottom: -15,
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "clamp(200px, 55vw, 700px)", 
+                zIndex: 5,
+                pointerEvents: "none",
+              }}
+            />
           </div>
 
           {/* VIDEO */}
@@ -95,6 +109,8 @@ export default function Home() {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
+                transform: "scale(1.25)", 
+                transformOrigin: "center center",
               }}
             >
               <source src="/videos/main_video.mp4" type="video/mp4" />

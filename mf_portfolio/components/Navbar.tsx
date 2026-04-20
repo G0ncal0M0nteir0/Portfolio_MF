@@ -26,7 +26,7 @@ export default function Navbar() {
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
-        padding: "20px 48px",
+        padding: "10px 48px", 
         boxSizing: "border-box",
       }}
     >
@@ -34,13 +34,13 @@ export default function Navbar() {
         <Image
           src="/images/mateus.svg"
           alt="Mateus"
-          width={80}
-          height={80}
+          width={110}  
+          height={110} 
           style={{ cursor: "pointer" }}
         />
       </Link>
 
-      <div style={{ display: "flex", gap: 80, alignItems: "center" }}>
+      <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
         {links.map(({ label, href }) => {
           const isActive = pathname === href;
           return (
@@ -48,9 +48,10 @@ export default function Navbar() {
               key={label}
               href={href}
               style={{
-                color: isActive ? "#C0392B" : "#111",
+                color: isActive ? "#000000" : "#111",
                 textDecoration: "none",
                 fontSize: 19,
+                fontFamily: '"Montserrat", sans-serif',
                 fontWeight: 500,
                 letterSpacing: "0.05em",
                 transition: "transform 0.2s ease",
@@ -69,7 +70,7 @@ export default function Navbar() {
         })}
       </div>
 
-      <Image src="/images/cubo.png" alt="Cubo" width={60} height={60} />
+      <Image src="/images/cubo.png" alt="Cubo" width={38} height={38} /> {/* ← square size (was 60) */}
     </nav>
   );
 }
